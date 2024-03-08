@@ -23,7 +23,8 @@ public class TransactionDaoImp implements TransactionDAO {
     RowMapper<TransactionModel> rowMapper = (rs, rowNum) -> {
         TransactionModel transaction = new TransactionModel();
         transaction.setTransaction_id(rs.getInt("transaction_id"));
-        transaction.setAmount(rs.getFloat("amount"));
+        transaction.setAmount(rs.getBigDecimal("amount"));
+        transaction.setCategory_id(rs.getInt("category_id"));
         transaction.setDate(rs.getDate("date"));
         return transaction;
     };

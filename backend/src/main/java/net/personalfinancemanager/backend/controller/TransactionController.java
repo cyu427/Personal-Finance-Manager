@@ -38,4 +38,11 @@ public class TransactionController {
 
         return ResponseEntity.ok(transaction);
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteCategory(@PathVariable("id") int transaction_id) {
+        transactionDAO.deleteTransaction(transaction_id);
+
+        return ResponseEntity.ok("Category deleted successfully");
+    }
 }

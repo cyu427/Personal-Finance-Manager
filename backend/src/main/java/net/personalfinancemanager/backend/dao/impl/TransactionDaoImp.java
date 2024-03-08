@@ -54,6 +54,7 @@ public class TransactionDaoImp implements TransactionDAO {
 
     @Override
     public void deleteTransaction(int transaction_id) {
-
+        String sql = "DELETE from transaction WHERE transaction_id=?";
+        jdbcTemplate.update(sql,transaction_id);
     }
 }

@@ -1,4 +1,4 @@
-package net.personalfinancemanager.backend;
+package net.personalfinancemanager.backend.controller;
 
 import lombok.AllArgsConstructor;
 import net.personalfinancemanager.backend.dao.CategoryDAO;

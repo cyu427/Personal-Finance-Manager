@@ -1,6 +1,5 @@
 package net.personalfinancemanager.backend.dao.impl;
 
-import lombok.AllArgsConstructor;
 import net.personalfinancemanager.backend.dao.CategoryDAO;
 import net.personalfinancemanager.backend.model.CategoryModel;
 import org.slf4j.Logger;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @Component
@@ -42,7 +40,6 @@ public class CategoryDaoImp implements CategoryDAO {
 
     @Override
     public CategoryModel createCategory(CategoryModel categoryModel) {
-        //String categoryId = UUID.randomUUID().toString();
         String sql = "INSERT into category (name,type) values (?,?)";
         jdbcTemplate.update(sql, categoryModel.getName(), categoryModel.getType());
         return categoryModel;

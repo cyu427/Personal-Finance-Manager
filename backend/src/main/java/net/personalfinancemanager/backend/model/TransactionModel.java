@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 @Getter
@@ -13,7 +14,7 @@ import java.sql.Date;
 @AllArgsConstructor
 public class TransactionModel {
     private int transaction_id;
-    private double amount;
+    private BigDecimal amount;
     private int category_id;
     private Date date;
 }

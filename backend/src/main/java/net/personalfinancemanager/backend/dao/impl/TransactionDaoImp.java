@@ -23,7 +23,8 @@ public class TransactionDaoImp implements TransactionDAO {
     RowMapper<TransactionModel> rowMapper = (rs, rowNum) -> {
         TransactionModel transaction = new TransactionModel();
         transaction.setTransaction_id(rs.getInt("transaction_id"));
-        transaction.setAmount(rs.getFloat("amount"));
+        transaction.setAmount(rs.getBigDecimal("amount"));
+        transaction.setCategory_id(rs.getInt("category_id"));
         transaction.setDate(rs.getDate("date"));
         return transaction;
     };
@@ -39,16 +40,21 @@ public class TransactionDaoImp implements TransactionDAO {
 
     @Override
     public TransactionModel createTransaction(TransactionModel transactionModel) {
-        return null;
+        String sql = "INSERT into transaction (amount, category_id, date) values (?,?,?)";
+        jdbcTemplate.update(sql, transactionModel.getAmount(), transactionModel.getCategory_id(), transactionModel.getDate());
+        return transactionModel;
     }
 
     @Override
     public TransactionModel updateTransaction(int transaction_id, TransactionModel updatedTransaction) {
-        return null;
+        String sql = "UPDATE transaction SET amount=?, category_id=?, date=? WHERE transaction_id=?";
+        jdbcTemplate.update(sql, updatedTransaction.getAmount(), updatedTransaction.getCategory_id(), updatedTransaction.getDate(), transaction_id);
+        return updatedTransaction;
     }
 
     @Override
     public void deleteTransaction(int transaction_id) {
-
+        String sql = "DELETE from transaction WHERE transaction_id=?";
+        jdbcTemplate.update(sql,transaction_id);
     }
 }

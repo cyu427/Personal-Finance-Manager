@@ -9,9 +9,9 @@ public interface DashboardDAO {
 
     List<TransactionModel> getAllIncome();
 
-    List<BigDecimal> getAllSpending();
+    List<TransactionModel> getAllSpending();
 
-    List<BigDecimal> getAllSaving();
+    List<TransactionModel> getAllSaving();
 
-    List<BigDecimal> getAllInvestment();
+    List<TransactionModel> getAllInvestment();
 }

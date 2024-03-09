@@ -46,17 +46,20 @@ public class DashboardDaoImp implements DashboardDAO {
     }
 
     @Override
-    public List<BigDecimal> getAllSpending() {
-        return null;
+    public List<TransactionModel> getAllSpending() {
+        String sql = "SELECT transaction.amount from transaction,category WHERE transaction.category_id=category.category_id AND category.type='SPENDING' ";
+        return jdbcTemplate.query(sql, rowMapperTransaction);
     }
 
     @Override
-    public List<BigDecimal> getAllSaving() {
-        return null;
+    public List<TransactionModel> getAllSaving() {
+        String sql = "SELECT transaction.amount from transaction,category WHERE transaction.category_id=category.category_id AND category.type='SAVING' ";
+        return jdbcTemplate.query(sql, rowMapperTransaction);
     }
 
     @Override
-    public List<BigDecimal> getAllInvestment() {
-        return null;
+    public List<TransactionModel> getAllInvestment() {
+        String sql = "SELECT transaction.amount from transaction,category WHERE transaction.category_id=category.category_id AND category.type='INVESTMENT' ";
+        return jdbcTemplate.query(sql, rowMapperTransaction);
     }
 }

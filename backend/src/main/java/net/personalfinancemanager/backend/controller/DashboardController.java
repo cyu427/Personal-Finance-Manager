@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
-import java.util.Collection;
 import java.util.List;
-import java.util.function.BiFunction;
 
 @CrossOrigin("*")
 @AllArgsConstructor
@@ -133,4 +131,39 @@ public class DashboardController {
 
         return ResponseEntity.ok(netWorth);
     }
+
+    @GetMapping("getCurrentMonthIncome")
+    public ResponseEntity<BigDecimal> getCurrentMonthIncome() {
+        List<TransactionModel> allIncome = dashboardDAO.getCurrentMonthIncome();
+        BigDecimal totalIncome = BigDecimal.ZERO;
+        for (TransactionModel transaction : allIncome) {
+            totalIncome = totalIncome.add(transaction.getAmount());
+        }
+
+        return ResponseEntity.ok(totalIncome);
+    }
+
+    @GetMapping("getLastMonthIncome")
+    public ResponseEntity<BigDecimal> getLastMonthIncome() {
+        List<TransactionModel> allIncome = dashboardDAO.getLastMonthIncome();
+        BigDecimal totalIncome = BigDecimal.ZERO;
+        for (TransactionModel transaction : allIncome) {
+            totalIncome = totalIncome.add(transaction.getAmount());
+        }
+
+        return ResponseEntity.ok(totalIncome);
+    }
+
+    @GetMapping("getCurrentYearIncome")
+    public ResponseEntity<BigDecimal> getCurrentYearIncome() {
+        List<TransactionModel> allIncome = dashboardDAO.getCurrentYearIncome();
+        BigDecimal totalIncome = BigDecimal.ZERO;
+        for (TransactionModel transaction : allIncome) {
+            totalIncome = totalIncome.add(transaction.getAmount());
+        }
+
+        return ResponseEntity.ok(totalIncome);
+    }
+
+
 }

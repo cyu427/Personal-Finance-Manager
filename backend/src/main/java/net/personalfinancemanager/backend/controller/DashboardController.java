@@ -165,5 +165,38 @@ public class DashboardController {
         return ResponseEntity.ok(totalIncome);
     }
 
+    @GetMapping("getCurrentMonthExpense")
+    public ResponseEntity<BigDecimal> getCurrentMonthExpense() {
+        List<TransactionModel> allExpense = dashboardDAO.getCurrentMonthExpense();
+        BigDecimal totalExpense = BigDecimal.ZERO;
+        for (TransactionModel transaction : allExpense) {
+            totalExpense = totalExpense.add(transaction.getAmount());
+        }
+
+        return ResponseEntity.ok(totalExpense);
+    }
+
+    @GetMapping("getLastMonthExpense")
+    public ResponseEntity<BigDecimal> getLastMonthExpense() {
+        List<TransactionModel> allExpense = dashboardDAO.getLastMonthExpense();
+        BigDecimal totalExpense = BigDecimal.ZERO;
+        for (TransactionModel transaction : allExpense) {
+            totalExpense = totalExpense.add(transaction.getAmount());
+        }
+
+        return ResponseEntity.ok(totalExpense);
+    }
+
+    @GetMapping("getCurrentYearExpense")
+    public ResponseEntity<BigDecimal> getCurrentYearExpense() {
+        List<TransactionModel> allExpense = dashboardDAO.getCurrentYearExpense();
+        BigDecimal totalExpense = BigDecimal.ZERO;
+        for (TransactionModel transaction : allExpense) {
+            totalExpense = totalExpense.add(transaction.getAmount());
+        }
+
+        return ResponseEntity.ok(totalExpense);
+    }
+
 
 }

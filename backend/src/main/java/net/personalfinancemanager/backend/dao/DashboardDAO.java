@@ -21,5 +21,11 @@ public interface DashboardDAO {
 
     List<TransactionModel> getCurrentYearIncome();
 
+    List<TransactionModel> getCurrentMonthExpense();
+
+    List<TransactionModel> getLastMonthExpense();
+
+    List<TransactionModel> getCurrentYearExpense();
+
 
 }

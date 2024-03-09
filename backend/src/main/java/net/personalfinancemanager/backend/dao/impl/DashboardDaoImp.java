@@ -80,4 +80,22 @@ public class DashboardDaoImp implements DashboardDAO {
         String sql = "SELECT transaction.amount from transaction,category WHERE transaction.category_id=category.category_id AND category.type='INCOME' AND year(transaction.date)=year(curdate())";
         return jdbcTemplate.query(sql, rowMapperTransaction);
     }
+
+    @Override
+    public List<TransactionModel> getCurrentMonthExpense() {
+        String sql = "SELECT transaction.amount from transaction,category WHERE transaction.category_id=category.category_id AND category.type='SPENDING' AND year(transaction.date)=year(curdate()) AND month(transaction.date)=month(curdate())";
+        return jdbcTemplate.query(sql, rowMapperTransaction);
+    }
+
+    @Override
+    public List<TransactionModel> getLastMonthExpense() {
+        String sql = "SELECT transaction.amount from transaction,category WHERE transaction.category_id=category.category_id AND category.type='SPENDING' AND year(transaction.date)=year(curdate()) AND month(transaction.date)=month(curdate())-1";
+        return jdbcTemplate.query(sql, rowMapperTransaction);
+    }
+
+    @Override
+    public List<TransactionModel> getCurrentYearExpense() {
+        String sql = "SELECT transaction.amount from transaction,category WHERE transaction.category_id=category.category_id AND category.type='SPENDING' AND year(transaction.date)=year(curdate())";
+        return jdbcTemplate.query(sql, rowMapperTransaction);
+    }
 }

@@ -1,0 +1,68 @@
+.card-container {
+    width: 18rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 2px 2px #bdb7b7;
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    background-color: white;
+    height: 10rem;
+    border: 1px;
+}
+
+.big-card-container {
+    width: 37.7rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 2px 2px #bdb7b7;
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    background-color: white;
+    height: 10rem;
+    border: 1px;
+}
+
+.graph-card-container {
+    width: 37.7rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 2px 2px #bdb7b7;
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    background-color: white;
+    height: 20rem;
+    border: 1px;
+}
+
+
+.card-title {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    margin: 0.5rem 5%;
+    font-size: 20px;
+}
+
+.card-description {
+    margin: 0.5rem 5%;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.select-options {
+    margin-left: 27rem;
+    position: relative;
+    top: -6rem;
+}
+
+.graph-select-options {
+    margin-left: 27rem;
+    position: relative;
+    top: -17.5rem;
+}
+
+.line-chart {
+    margin-left: 3rem;
+    width: 30rem;
+}
